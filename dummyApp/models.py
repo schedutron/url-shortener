@@ -1,5 +1,5 @@
 from django.db import models
-
+import string, random
 # Create your models here.
 class KirrURL(models.Model):
     url = models.CharField(max_length=220,)
@@ -11,7 +11,7 @@ class KirrURL(models.Model):
         print("something")
         if self.shortcode is None or self.shortcode == "":
             self.shortcode = code_generator()
-        #super(KirrURL, self).save()
+        super(KirrURL, self).save(*args, **kwargs)
     
     def __str__(self):
         return str(self.url)
